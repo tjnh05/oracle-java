@@ -11,7 +11,7 @@
   register: result
 
 - name: determine latest java download page and version
-  set_fact: latest_java_page_and_version="{{ (result.content.replace('\n','')|regex_replace('.*(/technetwork/java/javase/downloads/jdk(9)-downloads.*?.html).*', 'http://www.oracle.com/\1\n\2')).split('\n') }}"
+  set_fact: latest_java_page_and_version="{{ (result.content.replace('\n','')|regex_replace('.*(/technetwork/java/javase/downloads/jdk(8)-downloads.*?.html).*', 'http://www.oracle.com/\1\n\2')).split('\n') }}"
 
 - name: show latest java page and version page URL
   debug: msg="{{ latest_java_page_and_version }}"
